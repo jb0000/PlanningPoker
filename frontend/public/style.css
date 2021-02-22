@@ -1,0 +1,137 @@
+* {
+    margin: 2px;
+    font-size: 100%;
+    font-family: "Verdana";
+}
+body {
+    background-color: #9eb4be44;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.topright {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-column-start: centerRight;
+    grid-column-end: center;
+}
+
+.votingBar {
+    margin: top 10px;
+    grid-column-start: centerRight;
+    grid-column-end: center;
+    grid-row-start: footer;
+    grid-row-end: bottom;
+}
+
+.votingBar input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.votingBar label {
+    display: inline-block;
+    background-color: #9eb4be;
+    padding: 10px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    border: 2px solid #444;
+    border-radius: 4px;
+}
+
+.votingBar label:hover {
+    background-color: #4a9fcaa4;
+}
+
+.votingBar input[type="radio"]:focus+label {
+    border: 2px dashed #0f8bc9;
+}
+
+.votingBar input[type="radio"]:checked+label {
+    background-color: #0f8bc9;
+    border-color: #003366;
+}
+
+.fakeLabel {
+    border: 1px solid rgba(0, 0, 0, 0)
+}
+
+.pie {
+    margin: 20px;
+}
+
+.pie text {
+    font-size: 3em;
+    fill: #888;
+}
+
+.container {
+    height: 100%;
+    display: grid;
+    grid-template-rows: [top]20px [header] 15% [main]60% [footer] 60px [bottom];
+    grid-template-columns: [left] 20px [centerRight] 60% [center] 40% [centerLeft] 12px [right];
+}
+
+.header {
+    grid-column-start: centerRight;
+    grid-column-end: center;
+    grid-row-start: header;
+    grid-row-end: main;
+    display: grid;
+    grid-template-rows: [htop] 33% [hCenterTop]33% [hCenterBottom]33%[hBottom];
+    grid-template-columns: [hleft] 20% [hButton] 60% [hInput] 20% [hRight];
+}
+
+.taskInput {
+    grid-column-start: hButton;
+    grid-column-end: hRight;
+    grid-row-start: hCenterBottom;
+    grid-row-end: hBottom;
+}
+.task {
+    grid-column-start: hleft;
+    grid-column-end: hButton;
+    grid-row-start: hCenterBottom;
+    grid-row-end: hBottom;
+}
+
+.barChart {
+    grid-column-start: centerRight;
+    grid-column-end: center;
+    grid-row-start: main;
+    grid-row-end: footer;
+}
+
+.progress {
+    grid-column-start: center;
+    grid-column-end: centerLeft;
+    grid-row-start: main;
+    grid-row-end: footer;
+    justify-self: center;
+    align-self: center;
+}
+
+.calculations {
+    margin: top 10px;
+    grid-column-start: center;
+    grid-column-end: centerLeft;
+    grid-row-start: footer;
+    grid-row-end: bottom;
+    display: grid;
+    justify-self: center;
+    grid-template-rows:  50% 50%;
+    grid-template-columns: 70% 30%;
+}
+
+.centerLeft{
+    justify-self: left;
+    align-self: center;
+}

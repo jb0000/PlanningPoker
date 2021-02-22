@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Planning Poker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="topright">
+            <label class="centerLeft">Connection </label>
+            <svg height="14" width="14" class="centerLeft">
+                <circle id="connectionDot" cx="7" cy="7" r="7" fill="red" />
+            </svg>
+        </div>
+        <div class="header">
+            <label class="centerLeft"> Session Id:</label>
+            <input type="text" id="sessionInput" class="sessionInput">
+            <button type="button" id="createButton" style="font-size: small;" disabled>
+                createSession
+            </button>
+
+            <label class="task centerLeft"> Task: </label>
+            <input type="text" id="task" class="taskInput fakeLabel" disabled></input>
+
+        </div>
+        <div id="progress" class="progress"></div>
+        <div id="barChart" class="barChart"></div>
+        <div class="calculations">
+            <label id=averageLabel hidden=true> Average: </label><label id="average" style="margin-left: 12px;"
+                hidden=true></label>
+            <label id=medianLabel hidden=true> Median: </label><label id="median" style="margin-left: 12px;"
+                hidden=true></label>
+        </div>
+        <div id="voting" class="votingBar"></div>
+    </div>
+
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
