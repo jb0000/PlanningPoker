@@ -40,7 +40,7 @@ const deleteSession = (state, sessionKey) => {
 const joinSession = (state, session, user) => {
     try {
         // add user to session
-        if (state[session]) {
+        if (state.sessions[session]) {
             state.users[user] = session;
             console.log(`user ${user} joined session ${session}`);
         }
