@@ -40,8 +40,10 @@ const deleteSession = (state, sessionKey) => {
 const joinSession = (state, session, user) => {
     try {
         // add user to session
-        state.users[user] = session;
-        console.log(`user ${user} joined session ${session}`)
+        if (state[session]) {
+            state.users[user] = session;
+            console.log(`user ${user} joined session ${session}`);
+        }
     } catch (error) {
         console.log(error);
     }

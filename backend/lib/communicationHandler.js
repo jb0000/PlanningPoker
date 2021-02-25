@@ -28,10 +28,12 @@ const communicationHandler = (state, ws, updater, message) => {
             //error handling
             state = joinSession(state, message.payload, ws.id); // add user to session
             session = state.users[ws.id];
-            ws.send(JSON.stringify({ type: "sessionId", payload: session })); // send user sessionId
-            ws.send(JSON.stringify({ type: "votes", payload: getVotes(state, session) })); // and votes
-            ws.send(JSON.stringify({ type: "task", payload: state.sessions[session].task })); // and task
-            updater.sendMetaUpdate(state, session); // update everybody's number of users in session
+            if (session) {
+                ws.send(JSON.stringify({ type: "sessionId", payload: session })); // send user sessionId
+                ws.send(JSON.stringify({ type: "votes", payload: getVotes(state, session) })); // and votes
+                ws.send(JSON.stringify({ type: "task", payload: state.sessions[session].task })); // and task
+                updater.sendMetaUpdate(state, session); // update everybody's number of users in session
+            }
             break;
         case "leaveSession":
             session = state.users[ws.id];
@@ -41,7 +43,7 @@ const communicationHandler = (state, ws, updater, message) => {
             updater.sendMetaUpdate(state, session); // update everybody's new number of users in session
             break;
         case "castVote":
-            session = state.users[ws.id]; 
+            session = state.users[ws.id];
             state = castVote(state, ws.id, message.payload); // add or update vote in session
             updater.sendUpdate(state, session, { type: "votes", payload: getVotes(state, session) }); // update all votes
             break;
